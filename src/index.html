@@ -6,16 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Екатерина Епифанова" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title></title>
+    <title>My Giphy</title>
   </head>
 
   <body class="page">
-    <header class="header"></header>
+    <main class="content">
+      <h1 class="title">My Giphy</h1>
+      <ul class="controls">
+        <li class="controls__item">
+          <button class="controls__button" type="button" aria-label="поиск">
+            Поиск
+          </button>
+        </li>
+        <li class="controls__item">
+          <button class="controls__button" type="button" aria-label="тренды">
+            Тренды
+          </button>
+        </li>
+        <li class="controls__item">
+          <button
+            class="controls__button"
+            type="button"
+            aria-label="случайный гиф"
+          >
+            Случайный гиф
+          </button>
+        </li>
+        <li class="controls__item">
+          <button
+            class="controls__button"
+            type="button"
+            aria-label="добавить новый гиф"
+          >
+            Добавить новый
+          </button>
+        </li>
+      </ul>
 
-    <main class="content"></main>
+      <form class="form form_type_search" name="search-form" novalidate>
+        <input
+          class="form__input form__input_type_search"
+          type="text"
+          name="serch"
+          id="search-input"
+          placeholder="Искать гифку"
+          minlength="2"
+          required
+        />
 
-    <footer class="footer"></footer>
+        <button
+          class="form__button form__button_type_reset"
+          type="submit"
+          aria-label="искать"
+        ></button>
 
-    <script src="./pages/index.js"></script>
+        <button
+          class="form__button form__button_type_search"
+          type="button"
+          aria-label="очистить поле ввода"
+        ></button>
+      </form>
+
+      <ul class="list">
+        <li class="list__item"><img src="/" alt=" " class="list__image" /></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+        <li class="list__item"></li>
+      </ul>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Ekaterina Epifanova</p>
+    </footer>
+
+    <template class="search-form__template">
+      <form class="form form_type_search" name="search-form" novalidate>
+        <input
+          class="form__input form__input_type_search"
+          type="text"
+          name="serch"
+          id="search-input"
+          placeholder="Искать гифку"
+          minlength="2"
+          required
+        />
+
+        <button
+          class="form__button form__button_type_reset"
+          type="submit"
+          aria-label="искать"
+        ></button>
+
+        <button
+          class="form__button form__button_type_search"
+          type="button"
+          aria-label="очистить поле ввода"
+        ></button>
+      </form>
+    </template>
+
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>

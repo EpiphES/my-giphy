@@ -1,1 +1,81 @@
+.contain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.title {
+  text-align: center;
+  margin: 30px auto;
+  text-transform: uppercase;
+  color: #ef64d9;
+}
+
+.controls {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.controls__button {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: #eef0f5;
+  box-shadow: inset 3px 3px 4px  rgba(255, 255, 255, 0.8), inset -3px -3px 5px rgba(166, 180, 200, 0.7);
+  color: #5685ff;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.form__input {
+  height: 40px;
+  width: 100%;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #eef0f5;
+  box-shadow: inset -3px -3px 4px  rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(166, 180, 200, 0.7);
+}
+
+.form__button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #eef0f5;
+  box-shadow: inset 3px 3px 4px  rgba(255, 255, 255, 0.8), inset -3px -3px 5px rgba(166, 180, 200, 0.7);
+}
+
+.form__button_type_search {
+  background-image: url('../../images/search.svg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form__button_type_reset {
+  background-image: url('../../images/close.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.list {
+  padding: 30px 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5 1fr);
+}

@@ -1,0 +1,15 @@
+.header {
+  padding-top: 25px;
+  border-bottom: 1px solid #000;
+}
+
+.header__logo {
+  width: 142px;
+  height: 33px;
+
+  display: block;
+
+  background-image: url(../../images/logo_place_header.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}

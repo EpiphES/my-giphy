@@ -1,8 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
 .page {
+  background: #eef0f5;
+  /* linear-gradient(to bottom, #eef0f5, #d7d8e2, #c2c0ce, #b0a9b9, #9f91a4);; */
+
+  color: #5685ff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+
+  max-width: 1280px;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 0 30px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
 }
