@@ -1,20 +1,26 @@
-const key = "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L";
+const apiKey = "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L";
 
 import Navigation from "../components/Navigation.js";
+import Form from "../components/Form.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import Api from "../components/Api.js";
 
-const cardsList = new Section(addNewItem, ".elements");
-const controls = new Navigation(".header__controls", ".content");
+const navigation = new Navigation(".header__controls", ".content");
+navigation.init();
+
+const formForSearch = new Form(handleSearch, ".form_type_search");
+formForSearch.setEventListeners();
+
+const cardList = new Section(addNewItem, ".elements");
 
 function addNewItem(cardInfo) {
   return new Card(cardInfo, ".item__template").generateCard();
 }
 
-function getInitialCards() {
+function handleSearch({ search }) {
   return fetch(
-    `https://api.giphy.com/v1/gifs/search?api_key=U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L&q=%D0%BA%D0%B8%D1%82%D0%B0%D0%B9&limit=20&offset=10&rating=g&lang=ru`
+    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search}&limit=20&offset=10&rating=g&lang=ru`
   )
     .then((res) => {
       if (res.ok) {
@@ -22,8 +28,5 @@ function getInitialCards() {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => cardsList.renderItems(res.data));
+    .then((res) => cardList.renderItems(res.data));
 }
-
-// getInitialCards();
-controls.init();

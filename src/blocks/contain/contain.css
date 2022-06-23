@@ -10,34 +10,28 @@
 .form__input {
   height: 50px;
   width: 100%;
-  padding-left: 10px;
+  padding-left: 20px;
   border: none;
   border-radius: 5px;
   background: #eef0f5;
   box-shadow: inset -3px -3px 4px  rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(166, 180, 200, 0.7);
+
+  font-size: 18px;
+  color: #5685ff;
 }
 
 .form__button {
   width: 50px;
   height: 50px;
-  border: none;
-  border-radius: 5px;
-  background: #eef0f5;
-  box-shadow: inset 3px 3px 4px  rgba(255, 255, 255, 0.8), inset -3px -3px 5px rgba(166, 180, 200, 0.7);
 }
 
 .form__button_type_search {
-  background-image: url('../../images/search.svg');
+  background: url('../../images/search.svg') no-repeat center;
   background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .form__button_type_reset {
-  background-image: url('../../images/close.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-
+  background: url('../../images/close.svg') no-repeat center;
 }
 
 .elements {

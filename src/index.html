@@ -44,11 +44,11 @@
 
     <main class="container">
       <section class="content content_active" id="search">
-        <form class="form form_type_search" name="search-form" novalidate>
+        <form class="form form_type_search" name="search-form">
           <input
             class="form__input form__input_type_search"
             type="text"
-            name="serch"
+            name="search"
             id="search-input"
             placeholder="Искать гифку"
             minlength="2"
@@ -56,19 +56,19 @@
           />
 
           <button
-            class="form__button form__button_type_reset"
-            type="submit"
-            aria-label="искать"
-          ></button>
-
-          <button
-            class="form__button form__button_type_search"
+            class="form__button form__button_type_reset button"
             type="button"
             aria-label="очистить поле ввода"
           ></button>
+
+          <button
+            class="form__button form__button_type_search button"
+            type="submit"
+            aria-label="искать"
+          ></button>
         </form>
 
-        <ul class="elements"></ul>
+        <ul class="elements-list"></ul>
       </section>
       <section class="content" id="trending"><p>Trending</p></section>
       <section class="content" id="random"><p>Random</p></section>
