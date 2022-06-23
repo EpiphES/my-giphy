@@ -1,10 +1,12 @@
 const key = "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L";
 
+import Navigation from "../components/Navigation.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import Api from "../components/Api.js";
 
 const cardsList = new Section(addNewItem, ".elements");
+const controls = new Navigation(".controls", ".content");
 
 function addNewItem(cardInfo) {
   return new Card(cardInfo, ".item__template").generateCard();
@@ -24,3 +26,4 @@ function getInitialCards() {
 }
 
 // getInitialCards();
+controls.init();

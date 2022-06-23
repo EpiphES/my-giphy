@@ -10,99 +10,71 @@
   </head>
 
   <body class="page">
-    <main class="content">
+    <main class="container">
       <h1 class="title">My Giphy</h1>
-      <ul class="controls">
-        <li class="controls__item">
-          <button class="controls__button" type="button" aria-label="поиск">
-            Поиск
-          </button>
-        </li>
-        <li class="controls__item">
-          <button class="controls__button" type="button" aria-label="тренды">
-            Тренды
-          </button>
-        </li>
-        <li class="controls__item">
+      <nav>
+        <ul class="controls">
+          <li class="controls__item">
+            <a
+              href="#"
+              class="controls__link controls__link_active"
+              data-target="search"
+            >
+              Поиск
+            </a>
+          </li>
+          <li class="controls__item">
+            <a href="#" class="controls__link" data-target="trending">
+              В тренде
+            </a>
+          </li>
+          <li class="controls__item">
+            <a href="#" class="controls__link" data-target="random">
+              Мне повезет
+            </a>
+          </li>
+          <li class="controls__item">
+            <a href="#" class="controls__link" data-target="upload">
+              Добавить новый
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <section class="content content_active" id="search">
+        <form class="form form_type_search" name="search-form" novalidate>
+          <input
+            class="form__input form__input_type_search"
+            type="text"
+            name="serch"
+            id="search-input"
+            placeholder="Искать гифку"
+            minlength="2"
+            required
+          />
+
           <button
-            class="controls__button"
-            type="button"
-            aria-label="случайный гиф"
-          >
-            Случайный гиф
-          </button>
-        </li>
-        <li class="controls__item">
+            class="form__button form__button_type_reset"
+            type="submit"
+            aria-label="искать"
+          ></button>
+
           <button
-            class="controls__button"
+            class="form__button form__button_type_search"
             type="button"
-            aria-label="добавить новый гиф"
-          >
-            Добавить новый
-          </button>
-        </li>
-      </ul>
+            aria-label="очистить поле ввода"
+          ></button>
+        </form>
 
-      <form class="form form_type_search" name="search-form" novalidate>
-        <input
-          class="form__input form__input_type_search"
-          type="text"
-          name="serch"
-          id="search-input"
-          placeholder="Искать гифку"
-          minlength="2"
-          required
-        />
-
-        <button
-          class="form__button form__button_type_reset"
-          type="submit"
-          aria-label="искать"
-        ></button>
-
-        <button
-          class="form__button form__button_type_search"
-          type="button"
-          aria-label="очистить поле ввода"
-        ></button>
-      </form>
-
-      <ul class="elements"></ul>
+        <ul class="elements"></ul>
+      </section>
+      <section class="content" id="trending"><p>Trending</p></section>
+      <section class="content" id="random"><p>Random</p></section>
+      <section class="content" id="upload"><p>Upload</p></section>
     </main>
 
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Ekaterina Epifanova</p>
     </footer>
-
-    <template class="search-form__template">
-      <form class="form form_type_search" name="search-form" novalidate>
-        <input
-          class="form__input form__input_type_search"
-          type="text"
-          name="serch"
-          id="search-input"
-          placeholder="Искать гифку"
-          minlength="2"
-          required
-        />
-
-        <button
-          class="form__button form__button_type_reset"
-          type="submit"
-          aria-label="искать"
-        ></button>
-
-        <button
-          class="form__button form__button_type_search"
-          type="button"
-          aria-label="очистить поле ввода"
-        ></button>
-      </form>
-    </template>
-
-    <template class="list__template">
-      <ul class="elements"></ul>
-    </template>
 
     <template class="item__template"
       ><li class="elements__item">

@@ -1,4 +1,4 @@
-.contain {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,9 @@
   margin-bottom: 30px;
 }
 
-.controls__button {
+.controls__link {
+  text-decoration: none;
+  display: block;
   width: 200px;
   height: 40px;
   border-radius: 5px;
@@ -32,6 +34,10 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.controls__link_active {
+  background: red;
 }
 
 .form {
@@ -93,4 +99,12 @@
   width: 100%;
   border: none;
   background: #eef0f5;
+}
+
+.content {
+  display: none;
+}
+
+.content_active {
+  display: block;
 }
