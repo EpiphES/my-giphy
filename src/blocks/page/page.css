@@ -5,8 +5,7 @@
 }
 
 .page {
-  background: #eef0f5;
-  /* linear-gradient(to bottom, #eef0f5, #d7d8e2, #c2c0ce, #b0a9b9, #9f91a4);; */
+  background: linear-gradient(to bottom, #eef0f5, #d7d8e2, #c2c0ce, #b0a9b9, #9f91a4);
 
   color: #5685ff;
 
