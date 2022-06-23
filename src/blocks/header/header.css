@@ -1,15 +1,64 @@
 .header {
-  padding-top: 25px;
-  border-bottom: 1px solid #000;
+  width: 100%;
+  padding-top: 30px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .header__logo {
-  width: 142px;
-  height: 33px;
+  width: 150px;
+  height: 50px;
+  margin: 0 20px 20px 0;
 
   display: block;
 
-  background-image: url(../../images/logo_place_header.svg);
-  background-repeat: no-repeat;
+  background: black url(../../images/GIPHY\ Logo\ 300px.png) no-repeat center;
   background-size: contain;
+}
+
+.header__controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  list-style: none;
+}
+
+.header__link {
+  width: 200px;
+  padding: 16px;
+  display: block;
+  text-decoration: none;
+
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #5685ff;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  background: #eef0f5;
+
+  box-shadow: inset 6px 6px 10px  rgba(255, 255, 255, 0.8), inset -5px -5px 12px rgba(166, 180, 200, 0.7);
+}
+
+
+
+.button:hover {
+  box-shadow: inset -3px -3px 4px  rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(166, 180, 200, 0.7);
+}
+.header__link_active {
+  box-shadow: inset -3px -3px 4px  rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(166, 180, 200, 0.7);
+
+  color: #ef64d9;
 }

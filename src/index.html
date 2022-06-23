@@ -10,36 +10,39 @@
   </head>
 
   <body class="page">
-    <main class="container">
-      <h1 class="title">My Giphy</h1>
+    <header class="header">
+      <a href="#" class="header__logo"></a>
       <nav>
-        <ul class="controls">
-          <li class="controls__item">
+        <ul class="header__controls">
+          <li>
             <a
               href="#"
-              class="controls__link controls__link_active"
+              class="header__link button header__link_active"
               data-target="search"
             >
               Поиск
             </a>
           </li>
-          <li class="controls__item">
-            <a href="#" class="controls__link" data-target="trending">
+          <li>
+            <a href="#" class="header__link button" data-target="trending">
               В тренде
             </a>
           </li>
-          <li class="controls__item">
-            <a href="#" class="controls__link" data-target="random">
+          <li>
+            <a href="#" class="header__link button" data-target="random">
               Мне повезет
             </a>
           </li>
-          <li class="controls__item">
-            <a href="#" class="controls__link" data-target="upload">
+          <li>
+            <a href="#" class="header__link button" data-target="upload">
               Добавить новый
             </a>
           </li>
         </ul>
       </nav>
+    </header>
+
+    <main class="container">
       <section class="content content_active" id="search">
         <form class="form form_type_search" name="search-form" novalidate>
           <input

@@ -6,7 +6,7 @@ import Section from "../components/Section.js";
 import Api from "../components/Api.js";
 
 const cardsList = new Section(addNewItem, ".elements");
-const controls = new Navigation(".controls", ".content");
+const controls = new Navigation(".header__controls", ".content");
 
 function addNewItem(cardInfo) {
   return new Card(cardInfo, ".item__template").generateCard();
