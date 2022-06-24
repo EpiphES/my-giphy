@@ -1,11 +1,11 @@
 .button {
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   background: #eef0f5;
 
-  box-shadow: inset 6px 6px 10px  rgba(255, 255, 255, 0.8), inset -5px -5px 12px rgba(166, 180, 200, 0.7);
+  box-shadow: inset 6px 6px 10px  rgba(255, 255, 255, 0.8), inset -5px -5px 24px rgba(166, 180, 200, 0.8);
 }
 
 .button:hover {
-  box-shadow: inset -3px -3px 4px  rgba(255, 255, 255, 0.8), inset 2px 2px 5px rgba(166, 180, 200, 0.7);
+  box-shadow: inset -4px -4px 6px  rgba(255, 255, 255, 0.8), inset 4px 4px 10px rgba(166, 180, 200, 0.7);
 }

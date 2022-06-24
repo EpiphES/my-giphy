@@ -38,6 +38,7 @@ function handleSearch({ search }, form) {
   api
     .searchGifs(search)
     .then((res) => {
+      console.log(res);
       gallerySearch.resetList();
       form.reset();
       gallerySearch.renderItems(res.data);
@@ -49,7 +50,6 @@ function handleGetTrending() {
   api
     .getTrendingGifs()
     .then((res) => {
-      console.log("load");
       galleryTrending.resetList();
       galleryTrending.renderItems(res.data);
     })

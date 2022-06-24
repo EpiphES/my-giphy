@@ -19,6 +19,7 @@ export default class Card {
 
     this._cardImage.src = this._cardData.images.downsized.url;
     this._cardImage.alt = this._cardData.title;
+    this._cardTitle.textContent = this._cardData.title;
 
     return this._newCard;
   }
