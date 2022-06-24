@@ -17,13 +17,30 @@ formForSearch.setEventListeners();
 
 const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
+const galleryTrending = new Gallery(addNewItem, ".gallery_place_trending");
+
 function addNewItem(cardData) {
   return new Card(cardData, ".gallery__template").generateCard();
 }
 
 function handleSearch({ search }) {
-  api.searchGifs(search).then((res) => {
-    gallerySearch.resetList();
-    gallerySearch.renderItems(res.data);
-  });
+  api
+    .searchGifs(search)
+    .then((res) => {
+      gallerySearch.resetList();
+      gallerySearch.renderItems(res.data);
+    })
+    .catch((err) => console.log(err));
 }
+
+function handleTrending() {
+  api
+    .getTrendingGifs()
+    .then((res) => {
+      galleryTrending.resetList();
+      galleryTrending.renderItems(res.data);
+    })
+    .catch((err) => console.log(err));
+}
+
+handleTrending();
