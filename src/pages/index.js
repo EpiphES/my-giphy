@@ -3,6 +3,7 @@ import Form from "../components/Form.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
 import Api from "../components/Api.js";
+import SingleCard from "../components/SingleCard.js";
 
 const api = new Api(
   "https://api.giphy.com/v1/gifs/",
@@ -28,7 +29,7 @@ const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
 const galleryTrending = new Gallery(addNewItem, ".gallery_place_trending");
 
-const galleryRandom = new Gallery(addNewItem, ".view_type_random");
+const randomGif = new SingleCard(".single-card");
 
 function addNewItem(cardData) {
   return new Card(cardData, ".gallery__template").generateCard();
@@ -65,8 +66,7 @@ function handleGetRandom() {
   api
     .getRandomGif()
     .then((res) => {
-      galleryRandom.resetList();
-      galleryRandom.addItem(res.data);
+      randomGif.showCard(res.data);
     })
     .catch((err) => console.log(err));
 }

@@ -1,12 +1,11 @@
 .footer {
-  padding-bottom: 25px;
-  margin-top: auto;
+  padding: 30px 0;
 }
 
 .footer__copyright {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 1.22;
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
 
-  /* color: ; */
 }

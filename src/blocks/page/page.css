@@ -13,6 +13,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   background: #eef0f5;
   color: #5685ff;
