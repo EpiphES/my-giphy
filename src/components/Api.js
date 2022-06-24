@@ -1,67 +1,37 @@
 export default class Api {
-  _baseUrl;
-  _headers;
-
-  constructor({ baseUrl, headers }) {
+  constructor(baseUrl, apiKey) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
+    this._apiKey = apiKey;
   }
 
-  getInitialCards() {
-    return fetch(`${this._baseUrl}cards`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+  searchGifs(searchWord) {
+    return fetch(
+      `${this._baseUrl}search?api_key=${this._apiKey}&q=${searchWord}&limit=20`
+    ).then(this._checkResponse);
   }
 
-  getProfileInfo() {
-    return fetch(`${this._baseUrl}users/me`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+  getTrendingGifs() {
+    return fetch(
+      `${this._baseUrl}trending?api_key=${this._apiKey}&limit=20`
+    ).then(this._checkResponse);
   }
 
-  submitProfileInfo(profileInfo) {
-    return fetch(`${this._baseUrl}users/me`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify(profileInfo),
-    }).then(this._checkResponse);
+  getRandomGif() {
+    return fetch(`${this._baseUrl}random?api_key=${this._apiKey}`).then(
+      this._checkResponse
+    );
   }
 
-  submitAvatar(formValues) {
-    return fetch(`${this._baseUrl}users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({ avatar: formValues.avatar }),
-    }).then(this._checkResponse);
+  uploadGifUrl(url) {
+    return fetch(`${this._baseUrl}?api_key=${this._apiKey}&file=${url}`).then(
+      this._checkResponse
+    );
   }
 
-  submitCard(formValues) {
-    return fetch(`${this._baseUrl}cards`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({ name: formValues.title, link: formValues.link }),
-    }).then(this._checkResponse);
-  }
-
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}cards/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  addLike(cardId) {
-    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  deleteLike(cardId) {
-    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+  uploadLocalGif(file) {
+    return fetch(`${this._baseUrl}?api_key=${this._apiKey}&file=${file}`).then(
+      this._checkResponse
+    );
   }
 
   _checkResponse(res) {

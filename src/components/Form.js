@@ -18,13 +18,11 @@ export default class Form {
 
   _submitFormHandler = (evt) => {
     evt.preventDefault();
-    console.log(this._getInputValues());
     this._handleFormSubmit(this._getInputValues());
   };
 
   setEventListeners() {
     this._form.addEventListener("submit", this._submitFormHandler);
     this._resetButton.addEventListener("click", () => this._form.reset());
-    console.log(this._submitButton);
   }
 }

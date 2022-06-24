@@ -50,7 +50,7 @@
             type="text"
             name="search"
             id="search-input"
-            placeholder="Искать гифку"
+            placeholder="Введите поисковый запрос"
             minlength="2"
             required
           />
@@ -68,7 +68,7 @@
           ></button>
         </form>
 
-        <ul class="elements-list"></ul>
+        <ul class="gallery gallery_place_search"></ul>
       </section>
       <section class="content" id="trending"><p>Trending</p></section>
       <section class="content" id="random"><p>Random</p></section>
@@ -79,15 +79,12 @@
       <p class="footer__copyright">&copy; 2022 Ekaterina Epifanova</p>
     </footer>
 
-    <template class="item__template"
-      ><li class="elements__item">
-        <iframe
-          src="/"
-          width="480"
-          frameborder="0"
-          class="elements__giphy"
-          allowfullscreen
-        ></iframe>
+    <template class="gallery__template">
+      <li class="gallery__item">
+        <figure class="gallery__contain">
+          <image class="gallery__image" src="/" alt=""></img>
+          <figcapture class="gallery__title"></figcapture>
+        </figure>
       </li>
     </template>
 

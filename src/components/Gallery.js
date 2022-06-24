@@ -1,4 +1,4 @@
-export default class Section {
+export default class Gallery {
   _renderer;
   _container;
 
@@ -7,12 +7,16 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  renderItems(initialArray) {
-    initialArray.forEach((item) => this.addItem(item));
+  renderItems(array) {
+    array.forEach((item) => this.addItem(item));
   }
 
   addItem(item) {
     const cardElement = this._renderer(item);
     this._container.append(cardElement);
+  }
+
+  resetList() {
+    this._container.innerHTML = "";
   }
 }
