@@ -17,6 +17,8 @@ export default class Gallery {
   }
 
   resetList() {
-    this._container.innerHTML = "";
+    while (this._container.firstChild) {
+      this._container.removeChild(this._container.firstChild);
+    }
   }
 }

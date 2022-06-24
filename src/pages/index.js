@@ -9,38 +9,64 @@ const api = new Api(
   "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L"
 );
 
-const navigation = new Navigation(".header__controls", ".content");
+const navigation = new Navigation(
+  ".header__controls",
+  ".view",
+  handleGetTrending,
+  handleGetRandom
+);
 navigation.init();
 
-const formForSearch = new Form(handleSearch, ".form_type_search");
+const formForSearch = new Form(
+  handleSearch,
+  handleResetSearch,
+  ".form_type_search"
+);
 formForSearch.setEventListeners();
 
 const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
 const galleryTrending = new Gallery(addNewItem, ".gallery_place_trending");
 
+const galleryRandom = new Gallery(addNewItem, ".view_type_random");
+
 function addNewItem(cardData) {
   return new Card(cardData, ".gallery__template").generateCard();
 }
 
-function handleSearch({ search }) {
+function handleSearch({ search }, form) {
   api
     .searchGifs(search)
     .then((res) => {
       gallerySearch.resetList();
+      form.reset();
       gallerySearch.renderItems(res.data);
     })
     .catch((err) => console.log(err));
 }
 
-function handleTrending() {
+function handleGetTrending() {
   api
     .getTrendingGifs()
     .then((res) => {
+      console.log("load");
       galleryTrending.resetList();
       galleryTrending.renderItems(res.data);
     })
     .catch((err) => console.log(err));
 }
 
-handleTrending();
+function handleResetSearch(form) {
+  gallerySearch.resetList();
+  form.reset();
+}
+
+function handleGetRandom() {
+  api
+    .getRandomGif()
+    .then((res) => {
+      galleryRandom.resetList();
+      galleryRandom.addItem(res.data);
+    })
+    .catch((err) => console.log(err));
+}

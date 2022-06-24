@@ -24,12 +24,12 @@
             </a>
           </li>
           <li>
-            <a href="#" class="header__link button" data-target="trending">
+            <a href="#" class="header__link button" id="trending-link" data-target="trending">
               В тренде
             </a>
           </li>
           <li>
-            <a href="#" class="header__link button" data-target="random">
+            <a href="#" class="header__link button" id="random-link" data-target="random">
               Мне повезет
             </a>
           </li>
@@ -43,7 +43,7 @@
     </header>
 
     <main class="container">
-      <section class="content content_active" id="search">
+      <section class="view view_type_container view_active" id="search">
         <form class="form form_type_search" name="search-form">
           <input
             class="form__input form__input_type_search"
@@ -70,12 +70,12 @@
 
         <ul class="gallery gallery_place_search"></ul>
       </section>
-      <section class="content" id="trending">
+      <section class="view view_type_trending" id="trending">
         <h2>Популярные гифки</h2>
         <ul class="gallery gallery_place_trending"></ul>
       </section>
-      <section class="content" id="random"><h2>Случайная гифка</h2></section>
-      <section class="content" id="upload"></section>
+      <section class="view view_type_random" id="random"><h2>Случайная гифка</h2></section>
+      <section class="view" id="upload"></section>
     </main>
 
     <footer class="footer">

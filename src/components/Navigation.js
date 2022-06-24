@@ -1,13 +1,25 @@
 export default class Navigation {
-  constructor(controlsSelector, contentSelector) {
+  constructor(controlsSelector, viewSelector, handleTrending, handleRandom) {
     this._controls = document.querySelector(controlsSelector);
-    this._pages = document.querySelectorAll(contentSelector);
+    this._pages = document.querySelectorAll(viewSelector);
     this._controlsLinks = this._controls.querySelectorAll(".header__link");
+    this._trendingButton = this._controls.querySelector("#trending-link");
+    this._randomButton = this._controls.querySelector("#random-link");
+    this._handleTrending = handleTrending;
+    this._handleRandom = handleRandom;
   }
   init() {
     this._controlsLinks.forEach((link) => {
       link.addEventListener("click", this._handleNavigation);
     });
+
+    this._controls
+      .querySelector("#trending-link")
+      .addEventListener("click", this._handleTrending);
+
+    this._controls
+      .querySelector("#random-link")
+      .addEventListener("click", this._handleRandom);
 
     history.replaceState({}, "search", "#search");
 
@@ -17,10 +29,8 @@ export default class Navigation {
   _handleNavigation = (evt) => {
     evt.preventDefault();
     const targetPage = evt.target.dataset.target;
-    document
-      .querySelector(".content_active")
-      .classList.remove("content_active");
-    document.getElementById(targetPage).classList.add("content_active");
+    document.querySelector(".view_active").classList.remove("view_active");
+    document.getElementById(targetPage).classList.add("view_active");
     this._controls
       .querySelector(".header__link_active")
       .classList.remove("header__link_active");
@@ -30,10 +40,8 @@ export default class Navigation {
 
   _popPage = (evt) => {
     const hash = location.hash.replace("#", "");
-    document
-      .querySelector(".content_active")
-      .classList.remove("content_active");
-    document.getElementById(hash).classList.add("content_active");
+    document.querySelector(".view_active").classList.remove("view_active");
+    document.getElementById(hash).classList.add("view_active");
     this._controls
       .querySelector(".header__link_active")
       .classList.remove("header__link_active");

@@ -54,10 +54,10 @@
   background: #eef0f5;
 }
 
-.content {
+.view {
   display: none;
 }
 
-.content_active {
+.view_active {
   display: block;
 }
