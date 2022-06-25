@@ -1,3 +1,5 @@
+import "./index.css";
+
 import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
@@ -58,6 +60,10 @@ function handleSearch({ search }) {
     .catch((err) => console.log(err));
 }
 
+function handleResetSearch() {
+  gallerySearch.resetList();
+}
+
 function handleGetTrending() {
   api
     .getTrendingGifs()
@@ -66,10 +72,6 @@ function handleGetTrending() {
       galleryTrending.renderItems(res.data);
     })
     .catch((err) => console.log(err));
-}
-
-function handleResetSearch() {
-  gallerySearch.resetList();
 }
 
 function handleGetRandom() {
@@ -82,15 +84,17 @@ function handleGetRandom() {
     .catch((err) => console.log(err));
 }
 
-function handleUploadUrl({ url }) {
+function handleUploadUrl({ url }, form) {
   api
     .uploadGifUrl(url)
-    .then(() => alert("Ссылка отправлена"))
+    .then(() => {
+      alert("Ссылка отправлена");
+      form.reset();
+    })
     .catch((err) => console.log(err));
 }
 
 function handleUploadFile({ file }) {
-  console.log(file);
   api
     .uploadLocalGif(file)
     .then(() => alert("Гифка отправлена"))

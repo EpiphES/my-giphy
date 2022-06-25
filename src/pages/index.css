@@ -14,8 +14,6 @@
 
 @import url(../blocks/header/__link/header__link.css);
 
-@import url(../blocks/contain/contain.css);
-
 @import url(../blocks/view/view.css);
 
 @import url(../blocks/view/_active/view__active.css);

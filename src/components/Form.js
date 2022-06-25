@@ -19,7 +19,7 @@ export default class Form {
 
   _submitFormHandler = (evt) => {
     evt.preventDefault();
-    this._handleFormSubmit(this._getInputValues());
+    this._handleFormSubmit(this._getInputValues(), this._form);
   };
 
   setEventListeners() {

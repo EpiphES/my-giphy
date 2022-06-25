@@ -37,14 +37,12 @@ export default class Api {
   }
 
   uploadLocalGif(file) {
-    const fike = file.replace("\fakepath", "");
-    console.log(fike);
-    return fetch(`${this._uploadUrl}?api_key=${this._apiKey}&file=${fike}`, {
+    return fetch(`${this._uploadUrl}?api_key=${this._apiKey}&file=${file}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `file=${fike}`,
+      body: `file=${file}`,
     }).then(this._checkResponse);
   }
 
