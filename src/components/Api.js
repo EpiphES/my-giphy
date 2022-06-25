@@ -25,14 +25,27 @@ export default class Api {
 
   uploadGifUrl(url) {
     return fetch(
-      `${this._uploadUrl}?api_key=${this._apiKey}&source_image_url=${url}`
+      `${this._uploadUrl}?api_key=${this._apiKey}&source_image_url=${url}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `source_image_url=${url}`,
+      }
     ).then(this._checkResponse);
   }
 
   uploadLocalGif(file) {
-    return fetch(
-      `${this._uploadUrl}?api_key=${this._apiKey}&file=${file}`
-    ).then(this._checkResponse);
+    const fike = file.replace("\fakepath", "");
+    console.log(fike);
+    return fetch(`${this._uploadUrl}?api_key=${this._apiKey}&file=${fike}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `file=${fike}`,
+    }).then(this._checkResponse);
   }
 
   _checkResponse(res) {
