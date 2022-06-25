@@ -1,8 +1,8 @@
 import Navigation from "../components/Navigation.js";
+import Api from "../components/Api.js";
 import Form from "../components/Form.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
-import Api from "../components/Api.js";
 import SingleCard from "../components/SingleCard.js";
 
 const api = new Api(
@@ -35,15 +35,14 @@ function addNewItem(cardData) {
   return new Card(cardData, ".gallery__template").generateCard();
 }
 
-function handleSearch({ search }, form) {
+function handleSearch({ search }) {
   api
     .searchGifs(search)
     .then((res) => {
-      console.log(res);
       gallerySearch.resetList();
-      form.reset();
       gallerySearch.renderItems(res.data);
     })
+    .then(() => {})
     .catch((err) => console.log(err));
 }
 
@@ -63,6 +62,7 @@ function handleResetSearch(form) {
 }
 
 function handleGetRandom() {
+  randomGif.cleanCard();
   api
     .getRandomGif()
     .then((res) => {

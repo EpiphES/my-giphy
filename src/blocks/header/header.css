@@ -29,13 +29,11 @@
 
 .header__link {
   width: 200px;
-  padding: 16px;
+  
   display: block;
   text-decoration: none;
 
-  font-size: 18px;
-  line-height: 1;
-  text-align: center;
+
   color: #5685ff;
 }
 

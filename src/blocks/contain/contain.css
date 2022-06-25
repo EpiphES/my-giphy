@@ -10,7 +10,38 @@
   width: 100%;
   display: flex;
   gap: 10px;
+
 }
+
+.form_type_upload {
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.form__wrapper {
+  display: flex;
+  gap: 10px;
+
+}
+
+.form__input_type_file {
+ display: none;
+}
+
+.form__input-label {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.form__title {
+  margin: 15px 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+
+}
+
+
 
 .form__input {
   height: 50px;
@@ -46,6 +77,11 @@
   background: url('../../images/close.svg') no-repeat center;
 }
 
+.form__button_type_upload {
+  background: url('../../images/upload.svg') no-repeat center;
+  background-size: 40%;
+}
+
 .gallery {
   width: 100%;
   padding: 30px 0;
@@ -53,28 +89,35 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  grid-auto-rows: auto;
 }
 
 .gallery__item {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
+.gallery__card {
+
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: #fff;
+}
+
+
 
 .gallery__image {
   width: 100%;
   max-width: 500px;
-  border-radius: 5px 5px 0 0;
-
 }
 
 .gallery__title {
   display: block;
   padding: 10px;
   text-align: center;
+  color:#67e0ba
 }
 
 .view {
@@ -90,6 +133,7 @@
 
 .single-card {
   max-width: 500px;
+  min-height: 200px;
   padding: 20px;
   margin: auto;
   align-self: center;
