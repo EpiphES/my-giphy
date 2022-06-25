@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
+import FormSearch from "../components/FormSearch.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
 import SingleCard from "../components/SingleCard.js";
@@ -18,12 +19,14 @@ const navigation = new Navigation(
 );
 navigation.init();
 
-const formForSearch = new Form(
+const formSearch = new FormSearch(
   handleSearch,
   handleResetSearch,
   ".form_type_search"
 );
-formForSearch.setEventListeners();
+formSearch.setEventListeners();
+
+// const formUploadUrl = new Form();
 
 const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
@@ -56,9 +59,8 @@ function handleGetTrending() {
     .catch((err) => console.log(err));
 }
 
-function handleResetSearch(form) {
+function handleResetSearch() {
   gallerySearch.resetList();
-  form.reset();
 }
 
 function handleGetRandom() {
