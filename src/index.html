@@ -43,6 +43,7 @@
     </header>
 
     <main class="container">
+
       <section class="view view_type_container view_active" id="search">
         <form class="form form_type_search" name="search-form">
           <input
@@ -54,33 +55,32 @@
             minlength="2"
             required
           />
-
           <button
             class="form__button form__button_type_reset button"
             type="button"
             aria-label="очистить поле ввода"
           ></button>
-
           <button
             class="form__button form__button_type_search button"
             type="submit"
             aria-label="искать"
           ></button>
         </form>
-
         <ul class="gallery gallery_place_search"></ul>
       </section>
+
       <section class="view" id="trending">
         <ul class="gallery gallery_place_trending"></ul>
       </section>
+
       <section class="view" id="random">
         <figure class="single-card">
           <image class="single-card__image" src="/" alt=""></img>
           <figcapture class="single-card__title"></figcapture>
         </figure>
       </section>
-      <section class="view" id="upload">
 
+      <section class="view" id="upload">
         <form class="form form_type_upload" name="url-form">
           <h2 class="form__title">Отправить ссылку на гифку</h2>
           <div class="form__wrapper">
@@ -102,37 +102,32 @@
             aria-label="отправить"
           ></button>
           </div>
-
         </form>
-
 
         <form class="form form_type_upload" name="file-form">
           <h2 class="form__title">Загрузить файл гифки</h2>
           <div class="form__wrapper">
             <label class="form__input-label button" for="file-input">Выберите файл</label>
-            <span class="form__upload-massage form__input"></span>
+            <span class="form__upload-massage form__input">Файл не выбран</span>
             <input
             class="form__input form__input_type_file"
             type="file"
             name="file"
             id="file-input"
+            placeholder=""
           />
           <button
             class="form__button form__button_type_reset button"
             type="button"
             aria-label="очистить поля ввода"
           ></button>
-
           <button
             class="form__button form__button_type_upload button"
             type="submit"
             aria-label="отправить"
           ></button></div>
-
         </form>
-
         </section>
-      <div class="container__overlay"></div>
     </main>
 
     <footer class="footer">

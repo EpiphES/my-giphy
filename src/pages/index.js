@@ -2,12 +2,14 @@ import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
 import FormSearch from "../components/FormSearch.js";
+import FormUploadFile from "../components/formUploadFile.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
 import SingleCard from "../components/SingleCard.js";
 
 const api = new Api(
-  "https://api.giphy.com/v1/gifs/",
+  "https://api.giphy.com/v1/gifs",
+  "https://upload.giphy.com/v1/gifs",
   "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L"
 );
 
@@ -26,7 +28,14 @@ const formSearch = new FormSearch(
 );
 formSearch.setEventListeners();
 
-// const formUploadUrl = new Form();
+const formUploadUrl = new Form(handleUploadUrl, "[name='url-form']");
+formUploadUrl.setEventListeners();
+
+const formUploadFile = new FormUploadFile(
+  handleUploadFile,
+  "[name='file-form']"
+);
+formUploadFile.setEventListeners();
 
 const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
@@ -70,5 +79,20 @@ function handleGetRandom() {
     .then((res) => {
       randomGif.showCard(res.data);
     })
+    .catch((err) => console.log(err));
+}
+
+function handleUploadUrl({ url }) {
+  api
+    .uploadGifUrl(url)
+    .then(() => alert("Ссылка отправлена"))
+    .catch((err) => console.log(err));
+}
+
+function handleUploadFile({ file }) {
+  console.log(file);
+  api
+    .uploadLocalGif(file)
+    .then(() => alert("Гифка отправлена"))
     .catch((err) => console.log(err));
 }

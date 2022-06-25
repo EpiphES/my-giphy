@@ -58,6 +58,11 @@
   color: #5685ff;
 }
 
+.form__upload-massage {
+  display: flex;
+  align-items: center;
+}
+
 .form__input::placeholder {
  color: #a6b4c8;
 }

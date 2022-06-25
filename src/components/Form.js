@@ -24,6 +24,8 @@ export default class Form {
 
   setEventListeners() {
     this._form.addEventListener("submit", this._submitFormHandler);
-    this._resetButton.addEventListener("click", () => this._form.reset());
+    this._resetButton.addEventListener("click", () => {
+      this._form.reset();
+    });
   }
 }
