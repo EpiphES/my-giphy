@@ -8,6 +8,58 @@
 
 @import url(../blocks/header/header.css);
 
+@import url(../blocks/header/__logo/header__logo.css);
+
+@import url(../blocks/header/__controls/header__controls.css);
+
+@import url(../blocks/header/__link/header__link.css);
+
 @import url(../blocks/contain/contain.css);
 
+@import url(../blocks/view/view.css);
+
+@import url(../blocks/view/_active/view__active.css);
+
+@import url(../blocks/form/form.css);
+
+@import url(../blocks/form/_type/form_type_upload.css);
+
+@import url(../blocks/form/__title/form__title.css);
+
+@import url(../blocks/form/__wrapper/form__wrapper.css);
+
+@import url(../blocks/form/__input/form__input.css);
+
+@import url(../blocks/form/__input/_type/form__input_type_file.css);
+
+@import url(../blocks/form/__input-label/form__input-label.css);
+
+@import url(../blocks/form/__button/form__button.css);
+
+@import url(../blocks/form/__button/_type/form__button_type_reset.css);
+
+@import url(../blocks/form/__button/_type/form__button_type_search.css);
+
+@import url(../blocks/form/__button/_type/form__button_type_upload.css);
+
+@import url(../blocks/form/__upload-massage/form__upload-message.css);
+
+@import url(../blocks/gallery/gallery.css);
+
+@import url(../blocks/gallery/__item/gallery__item.css);
+
+@import url(../blocks/gallery/__card/gallery__card.css);
+
+@import url(../blocks/gallery/__image/gallery__image.css);
+
+@import url(../blocks/gallery/__title/gallery__title.css);
+
+@import url(../blocks/single-card/single-card.css);
+
+@import url(../blocks/single-card/__image/single-card__image.css);
+
+@import url(../blocks/single-card/__title/single-card__title.css);
+
 @import url(../blocks/footer/footer.css);
+
+@import url(../blocks/footer/__copyright/footer__copyright.css);

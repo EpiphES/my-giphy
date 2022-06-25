@@ -1,0 +1,9 @@
+.header__logo {
+  width: 150px;
+  height: 50px;
+
+  display: block;
+
+  background: black url(../../../images/GIPHY\ Logo\ 300px.png) no-repeat center;
+  background-size: contain;
+}

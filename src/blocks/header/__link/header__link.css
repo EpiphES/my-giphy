@@ -1,0 +1,12 @@
+.header__link {
+  width: 200px;
+
+  display: block;
+  text-decoration: none;
+
+  color: #5685ff;
+}
+
+.header__link_active {
+  color: #ef64d9;
+}

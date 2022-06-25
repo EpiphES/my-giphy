@@ -1,0 +1,17 @@
+.form__input {
+  height: 50px;
+  width: 100%;
+  padding-left: 20px;
+  border: none;
+  border-radius: 20px;
+
+  font-size: 18px;
+  color: #5685ff;
+
+  background: #eef0f5;
+  box-shadow: inset -4px -4px 6px  rgba(255, 255, 255, 0.8), inset 4px 4px 10px rgba(166, 180, 200, 0.7);
+}
+
+.form__input::placeholder {
+ color: #a6b4c8;
+}
