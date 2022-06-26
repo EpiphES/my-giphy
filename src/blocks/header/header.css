@@ -5,13 +5,11 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 20px;
+  gap: 30px;
 }
 
 @media screen and (max-width: 1100px ) {
   .header {
     flex-direction: column;
-    gap: 20px;
   }
 }
