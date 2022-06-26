@@ -23,27 +23,36 @@ export default class Api {
     );
   }
 
-  uploadGifUrl(url) {
+  uploadGifUrl(url, tags) {
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("source_image_url", url);
+    urlencoded.append("tags", tags);
     return fetch(
-      `${this._uploadUrl}?api_key=${this._apiKey}&source_image_url=${url}`,
+      `${this._uploadUrl}?api_key=${this._apiKey}&source_image_url=${url}&tags=${tags}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `source_image_url=${url}`,
+        body: urlencoded,
       }
     ).then(this._checkResponse);
   }
 
-  uploadLocalGif(file) {
-    return fetch(`${this._uploadUrl}?api_key=${this._apiKey}&file=${file}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `file=${file}`,
-    }).then(this._checkResponse);
+  uploadLocalGif(file, tags) {
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("file", file);
+    urlencoded.append("tags", tags);
+    return fetch(
+      `${this._uploadUrl}?api_key=${this._apiKey}&file=${file}&tags=${tags}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: urlencoded,
+      }
+    ).then(this._checkResponse);
   }
 
   _checkResponse(res) {

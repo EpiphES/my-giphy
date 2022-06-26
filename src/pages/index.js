@@ -84,9 +84,10 @@ function handleGetRandom() {
     .catch((err) => console.log(err));
 }
 
-function handleUploadUrl({ url }, form) {
+function handleUploadUrl({ url, urltags }, form) {
+  const tags = processString(urltags);
   api
-    .uploadGifUrl(url)
+    .uploadGifUrl(url, tags)
     .then(() => {
       alert("Ссылка отправлена");
       form.reset();
@@ -94,9 +95,14 @@ function handleUploadUrl({ url }, form) {
     .catch((err) => console.log(err));
 }
 
-function handleUploadFile({ file }) {
+function handleUploadFile({ file, filetags }) {
+  const tags = processString(filetags);
   api
-    .uploadLocalGif(file)
+    .uploadLocalGif(file, tags)
     .then(() => alert("Гифка отправлена"))
     .catch((err) => console.log(err));
+}
+
+function processString(string) {
+  string.trim().replaceAll(",", " ").replace(/\s+/g, ", ");
 }
