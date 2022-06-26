@@ -4,7 +4,6 @@ import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
 import FormSearch from "../components/FormSearch.js";
-import FormUploadFile from "../components/formUploadFile.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
 import SingleCard from "../components/SingleCard.js";
@@ -30,14 +29,8 @@ const formSearch = new FormSearch(
 );
 formSearch.setEventListeners();
 
-const formUploadUrl = new Form(handleUploadUrl, "[name='url-form']");
+const formUploadUrl = new Form(handleUploadUrl, ".form_type_upload");
 formUploadUrl.setEventListeners();
-
-const formUploadFile = new FormUploadFile(
-  handleUploadFile,
-  "[name='file-form']"
-);
-formUploadFile.setEventListeners();
 
 const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
 
@@ -85,7 +78,7 @@ function handleGetRandom() {
 }
 
 function handleUploadUrl({ url, urltags }, form) {
-  const tags = processString(urltags);
+  const tags = urltags.trim().replaceAll(",", " ").replace(/\s+/g, ", ");
   api
     .uploadGifUrl(url, tags)
     .then(() => {
@@ -93,16 +86,4 @@ function handleUploadUrl({ url, urltags }, form) {
       form.reset();
     })
     .catch((err) => console.log(err));
-}
-
-function handleUploadFile({ file, filetags }) {
-  const tags = processString(filetags);
-  api
-    .uploadLocalGif(file, tags)
-    .then(() => alert("Гифка отправлена"))
-    .catch((err) => console.log(err));
-}
-
-function processString(string) {
-  string.trim().replaceAll(",", " ").replace(/\s+/g, ", ");
 }

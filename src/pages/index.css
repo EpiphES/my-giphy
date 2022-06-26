@@ -28,10 +28,6 @@
 
 @import url(../blocks/form/__input/form__input.css);
 
-@import url(../blocks/form/__input/_type/form__input_type_file.css);
-
-@import url(../blocks/form/__input-label/form__input-label.css);
-
 @import url(../blocks/form/__button/form__button.css);
 
 @import url(../blocks/form/__button/_type/form__button_type_reset.css);
@@ -39,8 +35,6 @@
 @import url(../blocks/form/__button/_type/form__button_type_search.css);
 
 @import url(../blocks/form/__button/_type/form__button_type_upload.css);
-
-@import url(../blocks/form/__upload-massage/form__upload-message.css);
 
 @import url(../blocks/gallery/gallery.css);
 
