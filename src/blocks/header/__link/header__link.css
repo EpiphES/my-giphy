@@ -1,5 +1,5 @@
 .header__link {
-  width: 200px;
+  width: 190px;
 
   display: block;
   text-decoration: none;
@@ -9,4 +9,10 @@
 
 .header__link_active {
   color: #ef64d9;
+}
+
+@media screen and (max-width: 480px) {
+  .header__link {
+    width: 120px;
+  }
 }

@@ -1,8 +1,8 @@
 .button {
   border: none;
   border-radius: 20px;
-  padding: 16px;
-  
+  padding: 16px 0;
+
   font-size: 18px;
   line-height: 1;
   text-align: center;
@@ -12,4 +12,18 @@
 
 .button:hover {
   box-shadow: inset -4px -4px 6px  rgba(255, 255, 255, 0.8), inset 4px 4px 10px rgba(166, 180, 200, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    padding: 14px 0;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .button {
+    padding: 12px 0;
+    font-size: 12px;
+  }
 }

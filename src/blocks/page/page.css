@@ -28,3 +28,11 @@
 
   font-family: Roboto, Arial, Helvetica,sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+  .page {
+    padding: 0 20px;
+  }
+
+
+}
