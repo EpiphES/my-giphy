@@ -54,16 +54,19 @@
             minlength="2"
             required
           />
-          <button
+          <div class="form__buttons-block">
+            <button
             class="form__button form__button_type_reset button"
             type="button"
             aria-label="очистить поле ввода"
           ></button>
-          <button
+            <button
             class="form__button form__button_type_search button"
             type="submit"
             aria-label="искать"
           ></button>
+          </div>
+
         </form>
         <ul class="gallery gallery_place_search"></ul>
       </section>
@@ -81,9 +84,7 @@
 
       <section class="view" id="upload">
         <form class="form form_type_upload" name="url-form">
-          <h2 class="form__title">Отправить ссылку на гифку</h2>
-          <div class="form__wrapper">
-            <input
+          <input
             class="form__input form__input_type_url"
             type="url"
             name="url"
@@ -97,7 +98,8 @@
             id="urltags"
             placeholder="Введите теги"
           />
-          <button
+          <div class="form__buttons-block">
+            <button
             class="form__button form__button_type_reset button"
             type="button"
             aria-label="очистить поля ввода"
@@ -107,7 +109,8 @@
             type="submit"
             aria-label="отправить"
           ></button>
-          </div>
+        </div>
+
         </form>
     </main>
 

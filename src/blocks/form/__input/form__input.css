@@ -15,3 +15,20 @@
 .form__input::placeholder {
  color: #a6b4c8;
 }
+
+@media screen and (max-width: 768px) {
+  .form__input {
+    height: 42px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form__input {
+    height: 36px;
+    font-size: 12px;
+  }
+
+
+
+}

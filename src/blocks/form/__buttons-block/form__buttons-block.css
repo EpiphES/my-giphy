@@ -1,0 +1,5 @@
+.form__buttons-block {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
