@@ -39,22 +39,6 @@ export default class Api {
     ).then(this._checkResponse);
   }
 
-  uploadLocalGif(file, tags) {
-    const urlencoded = new URLSearchParams();
-    urlencoded.append("file", file);
-    urlencoded.append("tags", tags);
-    return fetch(
-      `${this._uploadUrl}?api_key=${this._apiKey}&file=${file}&tags=${tags}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: urlencoded,
-      }
-    ).then(this._checkResponse);
-  }
-
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
