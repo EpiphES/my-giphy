@@ -1,7 +1,6 @@
 export default class Navigation {
-  constructor(controlsSelector, viewSelector, handleTrending, handleRandom) {
+  constructor(controlsSelector, handleTrending, handleRandom) {
     this._controls = document.querySelector(controlsSelector);
-    this._pages = document.querySelectorAll(viewSelector);
     this._controlsButtons = this._controls.querySelectorAll(".header__link");
     this._handleTrending = handleTrending;
     this._handleRandom = handleRandom;
@@ -49,7 +48,7 @@ export default class Navigation {
     const hash = location.hash.replace("#", "");
     this._toggleView(hash);
     const button = Array.from(this._controlsButtons).find(
-      (item) => item.dataset.target == hash
+      (item) => item.dataset.target === hash
     );
     this._toggleButtonState(button);
   };

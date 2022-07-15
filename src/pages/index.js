@@ -16,7 +16,6 @@ const api = new Api(
 
 const navigation = new Navigation(
   ".header__controls",
-  ".view",
   handleGetTrending,
   handleGetRandom
 );
