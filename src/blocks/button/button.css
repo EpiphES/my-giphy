@@ -1,11 +1,12 @@
 .button {
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 16px 0;
 
   font-size: 18px;
   line-height: 1;
   text-align: center;
+  text-transform: uppercase;
 
   box-shadow: inset 6px 6px 10px  rgba(255, 255, 255, 0.8), inset -5px -5px 24px rgba(166, 180, 200, 0.8);
 }
