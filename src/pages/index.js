@@ -126,3 +126,5 @@ function handleUploadUrl({ url, urltags }, form) {
     })
     .catch((err) => console.log(err));
 }
+
+handleGetTrending();
