@@ -1,10 +1,11 @@
 export default class Navigation {
-  constructor(controlsConfig, handleTrending, handleRandom) {
+  constructor(controlsConfig, handleClickTrending, handleClickRandom, handleClickSearch) {
     this._controlsConfig = controlsConfig;
     this._controls = document.querySelector(this._controlsConfig.controlsSelector);
     this._controlsButtons = this._controls.querySelectorAll(this._controlsConfig.buttonSelector);
-    this._handleTrending = handleTrending;
-    this._handleRandom = handleRandom;
+    this._handleClickTrending = handleClickTrending;
+    this._handleClickRandom = handleClickRandom;
+    this._handleClickSearch = handleClickSearch;
   }
   init() {
     this._controlsButtons.forEach((link) => {
@@ -13,11 +14,15 @@ export default class Navigation {
 
     this._controls
       .querySelector(this._controlsConfig.trendingButtonSelector)
-      .addEventListener("click", this._handleTrending);
+      .addEventListener("click", this._handleClickTrending);
 
     this._controls
       .querySelector(this._controlsConfig.randomButtonSelector)
-      .addEventListener("click", this._handleRandom);
+      .addEventListener("click", this._handleClickRandom);
+
+    this._controls
+      .querySelector(this._controlsConfig.searchButtonSelector)
+      .addEventListener("click", this._handleClickSearch);
 
     history.replaceState({}, "trending", "#trending");
 
