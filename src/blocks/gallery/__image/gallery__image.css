@@ -1,5 +1,4 @@
 .gallery__image {
-  width: 200px;
-  display: block;
-  object-fit: cover;
+  width: 100%;
+  background-color: #d0d0db;
 }
