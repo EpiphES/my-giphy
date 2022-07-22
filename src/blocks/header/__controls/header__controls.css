@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   gap: 20px;
 
-
   list-style: none;
 }
 
@@ -12,5 +11,4 @@
   .header__controls {
     justify-content: space-evenly;
   }
-
 }
