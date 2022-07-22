@@ -25,7 +25,7 @@ export default class Card {
     this._cardTitle = this._newCard.querySelector(this._titleSelector );
 
     this._cardImage.style.height = this._fixedWidth
-      ? `${(+this._height * this._fixedWidth) / +this._width}px` : this._height;
+      ? `${(+this._height * this._fixedWidth) / +this._width}px` : this._height + "px";
     this._cardImage.src = this._cardData.images.downsized.url;
     this._cardImage.alt = this._cardData.title;
     this._cardTitle.textContent = this._cardData.title;
