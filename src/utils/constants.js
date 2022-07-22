@@ -22,6 +22,7 @@ const singleCardConfig = {
 
 const trendingGallerySelector = ".gallery_place_trending";
 const searchGallerySelector = ".gallery_place_search";
+const singleCardContainerSelector = ".single-card";
 
 const controlsConfig = {
   controlsSelector: ".header__controls",
@@ -30,7 +31,26 @@ const controlsConfig = {
   activeViewClass: "view_active",
   trendingButtonSelector: ".header__link_type_trending",
   randomButtonSelector: ".header__link_type_random",
-
+  searchButtonSelector: ".header__link_type_search",
 };
 
-export { templateSelector, credentials, cardConfig, singleCardConfig, trendingGallerySelector, searchGallerySelector, controlsConfig };
+const searchFormSelector = ".form_type_search";
+const uploadFormSelector = ".form_type_upload";
+
+const inputSelector = ".form__input";
+const resetButtonSelector = ".form__button_type_reset";
+
+export {
+  templateSelector,
+  credentials,
+  cardConfig,
+  singleCardConfig,
+  trendingGallerySelector,
+  searchGallerySelector,
+  singleCardContainerSelector,
+  controlsConfig,
+  searchFormSelector,
+  uploadFormSelector,
+  inputSelector,
+  resetButtonSelector
+};

@@ -1,10 +1,10 @@
 export default class Form {
-  constructor(handleFormSubmit, formSelector) {
+  constructor(handleFormSubmit, formSelector, inputSelector) {
     this._form = document.querySelector(formSelector);
     this._handleFormSubmit = handleFormSubmit;
 
-    this._inputList = this._form.querySelectorAll(".form__input");
-    this._resetButton = this._form.querySelector(".form__button_type_reset");
+    this._inputList = this._form.querySelectorAll(inputSelector);
+
   }
 
   _getInputValues() {
