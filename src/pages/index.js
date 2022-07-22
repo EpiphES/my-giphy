@@ -6,45 +6,54 @@ import {
   credentials,
   trendingGallerySelector,
   searchGallerySelector,
+  singleCardContainerSelector,
   controlsConfig,
-  singleCardConfig
-} from "../utils/constants"
+  singleCardConfig,
+  searchFormSelector,
+  uploadFormSelector,
+  inputSelector, resetButtonSelector
+} from "../utils/constants";
+
+import Masonry from "masonry-layout";
 
 import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
 import FormSearch from "../components/FormSearch.js";
 import Card from "../components/Card.js";
-import Gallery from "../components/Gallery.js";
-
-import Masonry from "masonry-layout";
+import CardList from "../components/CardList.js";
 
 const api = new Api(credentials);
 
 const navigation = new Navigation(
   controlsConfig,
   handleGetTrending,
-  handleGetRandom
+  handleGetRandom,
+  handleClickSearch
 );
 navigation.init();
 
 const formSearch = new FormSearch(
   handleSearch,
   handleResetSearch,
-  ".form_type_search"
+  searchFormSelector,
+  inputSelector,
+  resetButtonSelector
 );
 formSearch.setEventListeners();
 
-const formUploadUrl = new Form(handleUploadUrl, ".form_type_upload");
+const formUploadUrl = new Form(handleUploadUrl, uploadFormSelector, inputSelector);
 formUploadUrl.setEventListeners();
 
-const gallerySearch = new Gallery(addNewItem, searchGallerySelector, cardConfig);
+const searchList = new CardList(addNewItem, searchGallerySelector, cardConfig);
 
-const galleryTrending = new Gallery(addNewItem, trendingGallerySelector, cardConfig);
+const trendingList = new CardList(addNewItem, trendingGallerySelector, cardConfig);
 
-const randomGif = new Gallery(addNewItem, ".single-card", singleCardConfig);
-
-// const randomGif = new SingleCard(".single-card");
+const singleCard = new CardList(
+  addNewItem,
+  singleCardContainerSelector,
+  singleCardConfig
+);
 
 function initMasonry(gallerySelector){
   const msnry = new Masonry(gallerySelector, {
@@ -66,25 +75,29 @@ function handleSearch({ search }) {
   api
     .searchGifs(search)
     .then((res) => {
-      gallerySearch.resetList();
-      gallerySearch.renderItems(res.data);
+      searchList.resetList();
+      searchList.renderItems(res.data);
     })
     .then(() => {
       initMasonry(searchGallerySelector)
     })
     .catch((err) => console.log(err));
 }
+function handleClickSearch() {
+  searchList.resetList();
+  formSearch.resetInput();
+}
 
 function handleResetSearch() {
-  gallerySearch.resetList();
+  searchList.resetList();
 }
 
 function handleGetTrending() {
   api
     .getTrendingGifs()
     .then((res) => {
-      galleryTrending.resetList();
-      galleryTrending.renderItems(res.data);
+      trendingList.resetList();
+      trendingList.renderItems(res.data);
     })
     .then(() => {
       initMasonry(trendingGallerySelector);
@@ -97,8 +110,8 @@ function handleGetRandom() {
     .getRandomGif()
     .then((res) => {
       console.log(res.data);
-      randomGif.resetList();
-      randomGif.addItem(res.data);
+      singleCard.resetList();
+      singleCard.addItem(res.data);
     })
     .catch((err) => console.log(err));
 }
@@ -108,7 +121,7 @@ function handleUploadUrl({ url, urltags }, form) {
   api
     .uploadGifUrl(url, tags)
     .then(() => {
-      alert("Ссылка отправлена");
+      alert("URL was successfully submitted ");
       form.reset();
     })
     .catch((err) => console.log(err));
