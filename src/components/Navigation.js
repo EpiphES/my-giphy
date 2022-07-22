@@ -1,7 +1,8 @@
 export default class Navigation {
-  constructor(controlsSelector, handleTrending, handleRandom) {
-    this._controls = document.querySelector(controlsSelector);
-    this._controlsButtons = this._controls.querySelectorAll(".header__link");
+  constructor(controlsConfig, handleTrending, handleRandom) {
+    this._controlsConfig = controlsConfig;
+    this._controls = document.querySelector(this._controlsConfig.controlsSelector);
+    this._controlsButtons = this._controls.querySelectorAll(this._controlsConfig.buttonSelector);
     this._handleTrending = handleTrending;
     this._handleRandom = handleRandom;
   }
@@ -11,14 +12,14 @@ export default class Navigation {
     });
 
     this._controls
-      .querySelector(".header__link_type_trending")
+      .querySelector(this._controlsConfig.trendingButtonSelector)
       .addEventListener("click", this._handleTrending);
 
     this._controls
-      .querySelector(".header__link_type_random")
+      .querySelector(this._controlsConfig.randomButtonSelector)
       .addEventListener("click", this._handleRandom);
 
-    history.replaceState({}, "search", "#search");
+    history.replaceState({}, "trending", "#trending");
 
     window.addEventListener("popstate", this._popPage);
   }
@@ -33,15 +34,19 @@ export default class Navigation {
 
   _toggleButtonState(button) {
     this._controls
-      .querySelector(".header__link_active")
-      .classList.remove("header__link_active");
+      .querySelector("." + this._controlsConfig.activeButtonClass)
+      .classList.remove(this._controlsConfig.activeButtonClass);
 
-    button.classList.add("header__link_active");
+    button.classList.add(this._controlsConfig.activeButtonClass);
   }
 
   _toggleView(targetPage) {
-    document.querySelector(".view_active").classList.remove("view_active");
-    document.getElementById(targetPage).classList.add("view_active");
+    document
+      .querySelector("." + this._controlsConfig.activeViewClass)
+      .classList.remove(this._controlsConfig.activeViewClass);
+    document
+      .getElementById(targetPage)
+      .classList.add(this._controlsConfig.activeViewClass);
   }
 
   _popPage = () => {

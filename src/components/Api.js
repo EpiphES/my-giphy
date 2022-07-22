@@ -1,5 +1,5 @@
 export default class Api {
-  constructor(downloadUrl, uploadUrl, apiKey) {
+  constructor({downloadUrl, uploadUrl, apiKey}) {
     this._downloadUrl = downloadUrl;
     this._uploadUrl = uploadUrl;
     this._apiKey = apiKey;

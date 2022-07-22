@@ -1,5 +1,14 @@
 import "./index.css";
 
+import {
+  templateSelector,
+  cardConfig,
+  credentials,
+  trendingGallerySelector,
+  searchGallerySelector,
+  controlsConfig }
+from "../utils/constants"
+
 import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
 import Form from "../components/Form.js";
@@ -9,14 +18,10 @@ import Gallery from "../components/Gallery.js";
 import SingleCard from "../components/SingleCard.js";
 import Masonry from "masonry-layout";
 
-const api = new Api(
-  "https://api.giphy.com/v1/gifs",
-  "https://upload.giphy.com/v1/gifs",
-  "U5zS22kTjXKZUEQVNwtDWaGWJZFSGT1L"
-);
+const api = new Api(credentials);
 
 const navigation = new Navigation(
-  ".header__controls",
+  controlsConfig,
   handleGetTrending,
   handleGetRandom
 );
@@ -32,28 +37,26 @@ formSearch.setEventListeners();
 const formUploadUrl = new Form(handleUploadUrl, ".form_type_upload");
 formUploadUrl.setEventListeners();
 
-const gallerySearch = new Gallery(addNewItem, ".gallery_place_search");
+const gallerySearch = new Gallery(addNewItem, searchGallerySelector);
 
-const galleryTrending = new Gallery(addNewItem, ".gallery_place_trending");
+const galleryTrending = new Gallery(addNewItem, trendingGallerySelector);
 
 const randomGif = new SingleCard(".single-card");
 
-function initMasonry(){
-  const elem = document.querySelector(".gallery_place_trending");
-  const msnry = new Masonry(elem, {
-    itemSelector: ".gallery__item",
-    columnWidth: 200,
+function initMasonry(gallerySelector){
+  const msnry = new Masonry(gallerySelector, {
+    itemSelector: cardConfig.itemSelector,
+    columnWidth: 220,
     horizontalOrder: true,
     initLayout: false,
     gutter: 30,
     fitWidth: true,
   });
-  msnry.reloadItems();
   msnry.layout();
 }
 
 function addNewItem(cardData) {
-  return new Card(cardData, ".gallery__template").generateCard();
+  return new Card(cardData, templateSelector, cardConfig).generateCard();
 }
 
 function handleSearch({ search }) {
@@ -63,7 +66,9 @@ function handleSearch({ search }) {
       gallerySearch.resetList();
       gallerySearch.renderItems(res.data);
     })
-    .then(() => {})
+    .then(() => {
+      initMasonry(searchGallerySelector)
+    })
     .catch((err) => console.log(err));
 }
 
@@ -79,7 +84,7 @@ function handleGetTrending() {
       galleryTrending.renderItems(res.data);
     })
     .then(() => {
-      initMasonry();
+      initMasonry(trendingGallerySelector);
     })
     .catch((err) => console.log(err));
 }
