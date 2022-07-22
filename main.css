@@ -417,12 +417,13 @@ template {
 
 .button {
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 16px 0;
 
   font-size: 18px;
   line-height: 1;
   text-align: center;
+  text-transform: uppercase;
 
   box-shadow: inset 6px 6px 10px  rgba(255, 255, 255, 0.8), inset -5px -5px 24px rgba(166, 180, 200, 0.8);
 }
@@ -483,7 +484,6 @@ template {
   flex-wrap: wrap;
   gap: 20px;
 
-
   list-style: none;
 }
 
@@ -491,7 +491,6 @@ template {
   .header__controls {
     justify-content: space-evenly;
   }
-
 }
 
 .header__link {
@@ -627,23 +626,13 @@ template {
 }
 
 .gallery {
-  width: 100%;
-  padding: 30px 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  grid-auto-rows: auto;
-}
-
-.gallery__item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: auto;
+  padding-top: 30px;
 }
 
 .gallery__card {
+  width: 220px;
+  margin-bottom: 30px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -652,6 +641,7 @@ template {
 
 .gallery__image {
   width: 100%;
+  background-color: #d0d0db;
 }
 
 .gallery__title {
@@ -662,8 +652,14 @@ template {
 }
 
 .single-card {
-  max-width: 500px;
-  min-height: 200px;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-card__item {
+  min-width: 30vw;
   padding: 20px;
   margin: auto;
 
@@ -675,7 +671,7 @@ template {
 }
 
 .single-card__image {
-  width: 100%;
+  background-color: #d0d0db;
 }
 
 .single-card__title {
@@ -685,7 +681,7 @@ template {
 }
 
 .footer {
-  padding: 30px 0 20px;
+  padding: 30px 0;
 }
 
 
