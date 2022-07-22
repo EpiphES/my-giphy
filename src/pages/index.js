@@ -7,6 +7,7 @@ import FormSearch from "../components/FormSearch.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
 import SingleCard from "../components/SingleCard.js";
+import Masonry from "masonry-layout";
 
 const api = new Api(
   "https://api.giphy.com/v1/gifs",
@@ -37,6 +38,20 @@ const galleryTrending = new Gallery(addNewItem, ".gallery_place_trending");
 
 const randomGif = new SingleCard(".single-card");
 
+function initMasonry(){
+  const elem = document.querySelector(".gallery_place_trending");
+  const msnry = new Masonry(elem, {
+    itemSelector: ".gallery__item",
+    columnWidth: 200,
+    horizontalOrder: true,
+    initLayout: false,
+    gutter: 30,
+    fitWidth: true,
+  });
+  msnry.reloadItems();
+  msnry.layout();
+}
+
 function addNewItem(cardData) {
   return new Card(cardData, ".gallery__template").generateCard();
 }
@@ -62,6 +77,9 @@ function handleGetTrending() {
     .then((res) => {
       galleryTrending.resetList();
       galleryTrending.renderItems(res.data);
+    })
+    .then(() => {
+      initMasonry();
     })
     .catch((err) => console.log(err));
 }
