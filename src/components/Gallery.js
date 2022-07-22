@@ -2,9 +2,10 @@ export default class Gallery {
   _renderer;
   _container;
 
-  constructor(renderer, containerSelector) {
+  constructor(renderer, containerSelector, itemConfig) {
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
+    this._itemConfig = itemConfig;
   }
 
   renderItems(array) {
@@ -12,7 +13,7 @@ export default class Gallery {
   }
 
   addItem(item) {
-    const cardElement = this._renderer(item);
+    const cardElement = this._renderer(item, this._itemConfig);
     this._container.append(cardElement);
   }
 

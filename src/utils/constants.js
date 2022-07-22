@@ -1,4 +1,4 @@
-const templateSelector = ".gallery__template";
+const templateSelector = ".template";
 
 const credentials = {
   downloadUrl: "https://api.giphy.com/v1/gifs",
@@ -7,10 +7,18 @@ const credentials = {
 };
 
 const cardConfig = {
-  itemSelector: ".gallery__item",
+  itemSelector: ".gallery__card",
   imageSelector: ".gallery__image",
   titleSelector: ".gallery__title",
+  fixedWidth: 220,
 }
+
+const singleCardConfig = {
+  itemSelector: ".single-card__item",
+  imageSelector: ".single-card__image",
+  titleSelector: ".single-card__title",
+  fixedWidth: false,
+};
 
 const trendingGallerySelector = ".gallery_place_trending";
 const searchGallerySelector = ".gallery_place_search";
@@ -25,4 +33,4 @@ const controlsConfig = {
 
 };
 
-export { templateSelector, credentials, cardConfig, trendingGallerySelector, searchGallerySelector, controlsConfig };
+export { templateSelector, credentials, cardConfig, singleCardConfig, trendingGallerySelector, searchGallerySelector, controlsConfig };

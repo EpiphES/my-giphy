@@ -6,8 +6,9 @@ import {
   credentials,
   trendingGallerySelector,
   searchGallerySelector,
-  controlsConfig }
-from "../utils/constants"
+  controlsConfig,
+  singleCardConfig
+} from "../utils/constants"
 
 import Navigation from "../components/Navigation.js";
 import Api from "../components/Api.js";
@@ -15,7 +16,7 @@ import Form from "../components/Form.js";
 import FormSearch from "../components/FormSearch.js";
 import Card from "../components/Card.js";
 import Gallery from "../components/Gallery.js";
-import SingleCard from "../components/SingleCard.js";
+
 import Masonry from "masonry-layout";
 
 const api = new Api(credentials);
@@ -37,11 +38,13 @@ formSearch.setEventListeners();
 const formUploadUrl = new Form(handleUploadUrl, ".form_type_upload");
 formUploadUrl.setEventListeners();
 
-const gallerySearch = new Gallery(addNewItem, searchGallerySelector);
+const gallerySearch = new Gallery(addNewItem, searchGallerySelector, cardConfig);
 
-const galleryTrending = new Gallery(addNewItem, trendingGallerySelector);
+const galleryTrending = new Gallery(addNewItem, trendingGallerySelector, cardConfig);
 
-const randomGif = new SingleCard(".single-card");
+const randomGif = new Gallery(addNewItem, ".single-card", singleCardConfig);
+
+// const randomGif = new SingleCard(".single-card");
 
 function initMasonry(gallerySelector){
   const msnry = new Masonry(gallerySelector, {
@@ -55,8 +58,8 @@ function initMasonry(gallerySelector){
   msnry.layout();
 }
 
-function addNewItem(cardData) {
-  return new Card(cardData, templateSelector, cardConfig).generateCard();
+function addNewItem(cardData, config) {
+  return new Card(cardData, templateSelector, config).generateCard();
 }
 
 function handleSearch({ search }) {
@@ -90,11 +93,12 @@ function handleGetTrending() {
 }
 
 function handleGetRandom() {
-  randomGif.cleanCard();
   api
     .getRandomGif()
     .then((res) => {
-      randomGif.showCard(res.data);
+      console.log(res.data);
+      randomGif.resetList();
+      randomGif.addItem(res.data);
     })
     .catch((err) => console.log(err));
 }
