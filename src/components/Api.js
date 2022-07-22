@@ -43,6 +43,6 @@ export default class Api {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка загрузки: ${res.status}`);
+    return Promise.reject(`Error: ${res.status}`);
   }
 }
