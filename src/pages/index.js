@@ -109,7 +109,6 @@ function handleGetRandom() {
   api
     .getRandomGif()
     .then((res) => {
-      console.log(res.data);
       singleCard.resetList();
       singleCard.addItem(res.data);
     })
