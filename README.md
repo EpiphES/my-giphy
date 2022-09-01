@@ -1,9 +1,35 @@
-# MyGiphy
+# Проект: My Giphy
 
-Simple single page app for searching and uploading gifs using Giphy API.
-Just enjoy those moving pictures!
+Pet-проект по собственному дизайну для тренировки написания веб-интерфейсов на ванильном JS
 
 ---
 
-[GitHub Pages](https://epiphes.github.io/MyGiphy/index.html)
+## О проекте
+
+Одностраничное приложение (SPA) на Pure JS, в котором можно загружать и просматривать гифки из свободного API (Giphy API)
+
+  ### Функционал:
+
+  * просмотр популярных гифок
+  * поиск гифок по ключевому слову
+  * просмотр случайной гифки
+  * реализован роутинг
+
+## Технологии:
+
+- HTML
+- CSS
+- JavaScript
+- библиотека Masonry layout
+- ООП
+- работа с Giphy API
+- сборка проекта на Webpack
+- адаптивная вёрстка
+- методология БЭМ
+
+---
+
+## Ссылка на GitHub Pages
+
+https://epiphes.github.io/my-giphy/index.html
 
