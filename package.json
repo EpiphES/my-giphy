@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EpiphES/MyGiphy.git"
+    "url": "git+https://github.com/EpiphES/my-giphy.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EpiphES/MyGiphy/issues"
+    "url": "https://github.com/EpiphES/my-giphy/issues"
   },
-  "homepage": "https://github.com/EpiphES/MyGiphy#readme",
+  "homepage": "https://github.com/EpiphES/my-giphy#readme",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
