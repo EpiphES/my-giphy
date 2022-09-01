@@ -58,10 +58,10 @@ const singleCard = new CardList(
 function initMasonry(gallerySelector){
   const msnry = new Masonry(gallerySelector, {
     itemSelector: cardConfig.itemSelector,
-    columnWidth: 220,
+    columnWidth: 200,
     horizontalOrder: true,
     initLayout: false,
-    gutter: 30,
+    gutter: 20,
     fitWidth: true,
   });
   msnry.layout();

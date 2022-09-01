@@ -10,7 +10,6 @@ const cardConfig = {
   itemSelector: ".gallery__card",
   imageSelector: ".gallery__image",
   titleSelector: ".gallery__title",
-  fixedWidth: 220,
 }
 
 const singleCardConfig = {
